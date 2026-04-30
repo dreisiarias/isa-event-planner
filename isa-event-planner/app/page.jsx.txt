@@ -1,0 +1,104 @@
+import React from 'react';
+import { Card, CardContent } from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
+import { motion } from 'framer-motion';
+
+export default function ISAEventPlanner(){
+  return (
+    <div className='min-h-screen bg-[#f4eee8] text-[#3a332c] font-sans'>
+      {/* HEADER */}
+      <header className='max-w-6xl mx-auto px-6 py-8 flex items-center justify-between'>
+        <div className='flex items-center gap-3'>
+          {/* LOGO */}
+          <img src='logo.png' alt='ISA Logo' className='h-12'/>
+          <div>
+            <p className='text-sm tracking-[0.4em] text-[#b58b5c]'>EVENT PLANNER</p>
+          </div>
+        </div>
+        <nav className='hidden md:flex gap-8 text-sm font-medium'>
+          <a href='#services' className='hover:text-green-700'>Servicios</a>
+          <a href='#about' className='hover:text-green-700'>Sobre mí</a>
+          <a href='#contact' className='hover:text-green-700'>Contacto</a>
+        </nav>
+      </header>
+
+      {/* HERO */}
+      <section className='max-w-6xl mx-auto px-6 py-12 grid md:grid-cols-2 gap-10 items-center'>
+        <motion.div initial={{opacity:0,x:-40}} animate={{opacity:1,x:0}}>
+          <p className='text-[#b58b5c] font-semibold'>Santa Hernández</p>
+          <h2 className='text-5xl md:text-6xl font-serif leading-tight mt-2'>Eventos con <span className='text-green-700'>elegancia</span> y amor</h2>
+          <p className='mt-4 text-lg text-[#6b6259]'>Diseñamos experiencias únicas para bodas, cumpleaños, baby showers y eventos corporativos en Worcester, Massachusetts.</p>
+          <div className='flex flex-wrap gap-4 mt-6'>
+            <Button className='bg-green-700 hover:bg-green-800' asChild>
+              <a href='tel:+15087977492'>📞 Llamar ahora</a>
+            </Button>
+            <Button variant='outline' asChild>
+              <a href='https://instagram.com/isaeventplanner_' target='_blank'>📸 Ver Instagram</a>
+            </Button>
+          </div>
+        </motion.div>
+
+        {/* LOGO GRANDE EN HOME */}
+        <motion.div initial={{opacity:0,x:40}} animate={{opacity:1,x:0}} className='flex justify-center'>
+          <img 
+            src='logo.png' 
+            alt='ISA Logo Grande'
+            className='w-[350px] md:w-[420px] object-contain drop-shadow-xl'/>
+        </motion.div>
+      </section>
+
+      {/* SERVICES */}
+      <section id='services' className='max-w-6xl mx-auto px-6 py-12'>
+        <h3 className='text-3xl font-semibold mb-8 text-center'>Nuestros Servicios</h3>
+        <div className='grid md:grid-cols-3 gap-6'>
+          {[
+            {title:'Bodas y compromisos'},
+            {title:'Cumpleaños y celebraciones'},
+            {title:'Eventos corporativos'}
+          ].map((item)=> (
+            <Card key={item.title} className='rounded-3xl shadow-md hover:shadow-xl transition'>
+              <CardContent className='p-6 text-center'>
+                <div className='text-2xl mb-3'>💐</div>
+                <h4 className='font-semibold text-xl'>{item.title}</h4>
+                <p className='mt-2 text-sm text-[#6b6259]'>Planificación, decoración y coordinación total del evento.</p>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+      </section>
+
+      {/* ABOUT */}
+      <section id='about' className='bg-[#fffaf6] py-14'>
+        <div className='max-w-4xl mx-auto px-6 text-center'>
+          <h3 className='text-3xl font-semibold'>Sobre ISA Event Planner</h3>
+          <p className='mt-5 text-[#6b6259] text-lg'>Cada evento es una historia. Nuestro objetivo es convertir tus ideas en momentos inolvidables con detalles elegantes, organización impecable y un trato personalizado.</p>
+        </div>
+      </section>
+
+      {/* CONTACT */}
+      <section id='contact' className='max-w-6xl mx-auto px-6 py-14'>
+        <h3 className='text-3xl font-semibold mb-8 text-center'>Contáctanos</h3>
+        <div className='grid md:grid-cols-2 gap-6'>
+          <Card className='rounded-3xl shadow-md'>
+            <CardContent className='p-6 space-y-4 text-lg'>
+              <div>📞 +1 (508) 797-7492</div>
+              <div>📸 @isaeventplanner_</div>
+              <div>📍 Worcester, MA</div>
+              <div>💬 Disponible por WhatsApp</div>
+            </CardContent>
+          </Card>
+
+          <Card className='rounded-3xl shadow-md flex items-center justify-center'>
+            <CardContent className='p-6 text-center'>
+              <p className='mb-4 text-lg'>¿Lista para planificar tu evento?</p>
+              <Button className='w-full bg-[#b58b5c] hover:bg-[#9d744b]'>Solicitar cotización</Button>
+            </CardContent>
+          </Card>
+        </div>
+      </section>
+
+      {/* FOOTER */}
+      <footer className='text-center py-8 text-sm text-[#8a7f75]'>© 2026 ISA Event Planner · Diseñado con elegancia</footer>
+    </div>
+  );
+}
